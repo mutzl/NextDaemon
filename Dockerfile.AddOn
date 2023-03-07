@@ -8,7 +8,7 @@ RUN export TARGETPLATFORM="${TARGETPLATFORM}"
 
 # Copy the source to docker container
 COPY ./src /usr/src
-RUN dotnet publish /usr/src/Host/NextDaemon.csproj -o "/daemon"
+RUN dotnet publish /usr/src/NextDaemon.csproj -o "/daemon"
 
 # Final stage, create the runtime container
 FROM ghcr.io/net-daemon/netdaemon_addonbase7
