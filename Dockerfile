@@ -21,4 +21,7 @@ COPY ./Docker/rootfs/etc/services.d/NetDaemonApp /etc/services.d/NetDaemonApp
 COPY --from=netbuilder /daemon /daemon
 
 # This is always set to data as default
-ENV NetDaemon__ApplicationConfigurationFolder=/data
+#ENV NetDaemon__ApplicationConfigurationFolder=/data
+
+EXPOSE 10000
+

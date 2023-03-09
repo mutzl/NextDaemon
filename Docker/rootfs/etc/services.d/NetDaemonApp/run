@@ -2,15 +2,15 @@
 
 declare daemondir="/daemon"
 
-if [ ! -d "/data" ]; then
-    echo -e "\\033[31mMissing mapping to apps, please map '/data' to your apps folder\\033[0m" >&2
-    exit 1
-fi
+#if [ ! -d "/data" ]; then
+#    echo -e "\\033[31mMissing mapping to apps, please map '/data' to your apps folder\\033[0m" >&2
+#    exit 1
+#fi
 
 if [[ -z "${NetDaemon__ApplicationAssembly}" ]]; then
     echo -e "\\033[32mStarting NetDaemon V3 runtime ...\\033[0m" >&2
     cd "${daemondir}" || exit 1
-    exec dotnet NetDaemon.Host.Default.dll
+    exec dotnet NextDaemon.dll
 else
     if [[ "${NetDaemon__ApplicationAssembly}" == *".csproj" ]]; then
         echo -e "\\033[31mcsproj deployments are not supported in v3, use compiled option instead!\\033[0m" >&2
