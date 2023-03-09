@@ -22,3 +22,5 @@ COPY --from=netbuilder /daemon /daemon
 
 LABEL \
     io.hass.version="VERSION"
+
+EXPOSE 10000

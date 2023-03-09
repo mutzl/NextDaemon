@@ -15,11 +15,22 @@ Playground for creating Homeassistant Add-Ons based on NetDaemon.
     1. Kestrel responding (APIs, ...)
     1. Blazor `Counter` page works including `IScheduler` and HA entities.
     1. **css not working** (-> publish?)
-![Screenshot1](screenshot1.png)
+![Running in Container](screenshot1.png)
+1. [Setting up a local docker registry](https://www.allisonthackston.com/articles/local-docker-registry.html) (so that add-on config.yaml can pull image locally). ()
+    1. `docker run -d -p 4000:5000 --restart always --name registry registry:2`
+    1. add `{ "insecure-registries": ["local_ip:4000"] }` in Docker Desktop *Settings -> Docker Engine*
+![Docker Settings](screenshot2.png)
+    1. `docker tag nextdaemon local_ip:4000/nextdaemon`
+    1. `docker push local_ip:4000/nextdaemon`
+1. Creating image for AddOn 
+    1. `docker build -t nextdaemon-addon -f .\Dockerfile.AddOn .`
+    1. `docker tag nextdaemon-addon local_ip:4000/nextdaemon-addon`
+    1. `docker push local_ip:4000/nextdaemon-addon`
+
 
 ## Still ToDo
+- `config.yaml` to create add-on (pref. from local registry)
 - add secrets
 - Workflow / Action to deploy docker image
-- `config.yaml` to create add-on
 - clean `run` and `finish`scripts
 - get the damn thing running!!!
