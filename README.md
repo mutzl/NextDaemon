@@ -15,7 +15,7 @@ Playground for creating Homeassistant Add-Ons based on NetDaemon.
     1. Kestrel responding (APIs, ...)
     1. Blazor `Counter` page works including `IScheduler` and HA entities.
     1. **css not working** (-> publish?)
-
+![Screenshot1](screenshot1.png)
 
 ## Still ToDo
 - add secrets
